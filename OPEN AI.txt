@@ -1,0 +1,2 @@
+  Session   팩트체크 크롬 확장 아키텍처 설계
+  Continue  opencode -s ses_0aab77b65ffe2chtzUssrpgAmS
