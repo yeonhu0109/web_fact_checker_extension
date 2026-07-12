@@ -1,0 +1,59 @@
+/* Pico CSS classless overrides */
+:root {
+  --pico-font-size: 14px;
+}
+
+main {
+  width: 420px;
+  padding: var(--pico-spacing);
+}
+
+nav a.active {
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Score badges */
+.badge-true { color: #4caf50; }
+.badge-mostly_true { color: #8bc34a; }
+.badge-unverified { color: #ffeb3b; }
+.badge-mostly_false { color: #ff9800; }
+.badge-false { color: #f44336; }
+.badge-opinion { color: #9e9e9e; }
+
+/* Result cards */
+.result-card {
+  border: 1px solid var(--pico-muted-border-color);
+  border-radius: var(--pico-border-radius);
+  padding: var(--pico-spacing);
+  margin-bottom: calc(var(--pico-spacing) / 2);
+}
+
+.result-card .statement-text {
+  margin-bottom: calc(var(--pico-spacing) / 2);
+}
+
+/* History list */
+.history-item {
+  cursor: pointer;
+  padding: calc(var(--pico-spacing) / 2);
+  border-bottom: 1px solid var(--pico-muted-border-color);
+}
+
+.history-item:hover {
+  background: var(--pico-muted-background-color);
+}
+
+/* Loading state */
+.loading {
+  text-align: center;
+  padding: 2rem;
+  opacity: 0.6;
+}
+
+/* Settings form */
+.api-key-input {
+  width: 100%;
+  font-family: monospace;
+}

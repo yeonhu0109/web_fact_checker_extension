@@ -1,12 +1,28 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fact Checker</title>
+    <title>팩트체크</title>
+    <link rel="stylesheet" href="../../node_modules/@picocss/pico/css/pico.classless.min.css" />
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div id="app">Extension Ready</div>
+    <main id="app">
+      <header>
+        <nav>
+          <ul><li><strong>🔍 팩트체크</strong></li></ul>
+          <ul>
+            <li><a href="#" data-view="analyze" class="active">분석</a></li>
+            <li><a href="#" data-view="history">내역</a></li>
+            <li><a href="#" data-view="settings">설정</a></li>
+          </ul>
+        </nav>
+      </header>
+      <section id="view-analyze"></section>
+      <section id="view-history" hidden></section>
+      <section id="view-settings" hidden></section>
+    </main>
     <script type="module" src="./main.ts"></script>
   </body>
 </html>
