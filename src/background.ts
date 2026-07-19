@@ -107,7 +107,19 @@ async function handleAnalyzePage(sendResponse: (response: BackgroundToPopup) => 
 
     sendResponse({ type: 'ANALYSIS_COMPLETE', result })
   } catch (err) {
-    const message = err instanceof Error ? err.message : String(err)
+    const raw = err instanceof Error ? err.message : String(err)
+
+    // Translate common API errors into user-friendly Korean messages
+    let message: string
+    if (raw.includes('429') || raw.includes('quota') || raw.includes('RESOURCE_EXHAUSTED')) {
+      message = `API 할당량이 초과되었습니다. 잠시 후 다시 시도하거나 설정에서 다른 Provider로 변경해보세요.`
+    } else if (raw.includes('401') || raw.includes('unauthorized') || raw.includes('API key')) {
+      message = `API 키가 올바르지 않습니다. 설정에서 API 키를 확인해주세요.`
+    } else if (raw.includes('500') || raw.includes('service')) {
+      message = `API 서버에 일시적인 오류가 발생했습니다. 잠시 후 다시 시도해주세요.`
+    } else {
+      message = raw
+    }
     sendResponse({ type: 'ANALYSIS_ERROR', error: message })
   }
 }
