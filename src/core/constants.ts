@@ -16,5 +16,5 @@ export const MIN_TEXT_LENGTH = 50
 export const PROVIDER_MODELS: Record<string, string[]> = {
   openai: ['gpt-4o-mini', 'gpt-4o', 'gpt-4-turbo'],
   claude: ['claude-3-haiku-20240307', 'claude-3-sonnet-20240229', 'claude-3-opus-20240229'],
-  gemini: ['gemini-2.0-flash', 'gemini-1.5-flash'],
+  gemini: ['gemini-flash-latest'],
 }

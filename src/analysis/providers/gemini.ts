@@ -59,10 +59,10 @@ function computeOverall(statements: StatementResult[]): number | null {
 export const geminiProvider: LLMProvider = {
   id: 'gemini',
   name: 'Gemini',
-  defaultModel: 'gemini-2.0-flash',
+  defaultModel: 'gemini-flash-latest',
 
   async analyze(text: string, config: LLMProviderConfig): Promise<AnalysisResult> {
-    const baseUrl = config.baseUrl ?? 'https://generativelanguage.googleapis.com/v1'
+    const baseUrl = config.baseUrl ?? 'https://generativelanguage.googleapis.com/v1beta'
     const url = `${baseUrl}/models/${config.model}:generateContent`
 
     const response = await fetch(url, {
