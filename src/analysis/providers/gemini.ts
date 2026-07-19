@@ -62,12 +62,15 @@ export const geminiProvider: LLMProvider = {
   defaultModel: 'gemini-2.0-flash',
 
   async analyze(text: string, config: LLMProviderConfig): Promise<AnalysisResult> {
-    const baseUrl = config.baseUrl ?? 'https://generativelanguage.googleapis.com/v1beta'
-    const url = `${baseUrl}/models/${config.model}:generateContent?key=${config.apiKey}`
+    const baseUrl = config.baseUrl ?? 'https://generativelanguage.googleapis.com/v1'
+    const url = `${baseUrl}/models/${config.model}:generateContent`
 
     const response = await fetch(url, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'X-goog-api-key': config.apiKey,
+      },
       body: JSON.stringify({
         contents: [{ parts: [{ text: buildPrompt(text) }] }],
         generationConfig: {
